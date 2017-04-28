@@ -1,0 +1,88 @@
+<!-- 告诉浏览器这个一个html5的网页 -->
+<!DOCTYPE html> 
+<html>
+<head>
+<!--网页的编码-->
+<meta charset="utf-8"/>
+</head>
+<body>
+<!--跟老师一起玩-->
+<canvas id="can1" width="500px" height="400px" style="border: 1px solid red">
+</canvas>
+<script type="text/javascript">
+	
+	//1.得到画布
+	var canvas1=document.getElementById("can1");
+	//2. 得到上下文引用，你可以理解成画笔
+	var cxt=canvas1.getContext("2d");
+
+	//3.画出直线
+	//moveTo设置点位置
+	cxt.moveTo(20,20);
+	//设置第二个点位置.
+	cxt.lineTo(20,90);
+	//画出直线.
+	cxt.stroke();
+
+	//画出一个填充的三角形.-->路径
+	//开始新路径
+	cxt.beginPath();
+	cxt.moveTo(40,20);
+	cxt.lineTo(40,90);
+	cxt.lineTo(80,90);
+	//闭合路径,把最后这个点和第一点moveTo() 闭合
+	cxt.closePath();
+	//填充矩形
+	cxt.fill();
+	//空心矩形
+	//cxt.stroke();
+
+	//画出矩形(对于矩形，可以不用路径)
+	//提醒:stroke划线， fill就是填充
+	//strokeRect(x, y, width, height)
+	cxt.strokeRect(100,20,70,70);
+	//填充矩形
+	//如果希望改变填充的颜色，则修改画笔的 fillStyle
+	cxt.fillStyle="#00FF00";
+	cxt.fillRect(190,20,50,50);
+
+	//画出圆形 arc
+	//六个参数: arc(x, y, radius, startAngle, endAngle, counterclockwise)
+	cxt.beginPath();
+	cxt.arc(270,40,20,0,360,true);
+	//闭合园
+	cxt.closePath();
+	cxt.stroke();
+
+	//画出填充的圆形
+	cxt.fillStyle="#FF0000";
+	cxt.beginPath();
+	cxt.arc(370,40,20,0,360,true);
+	//闭合园
+	cxt.closePath();
+	cxt.fill();
+
+	//把图片画出(这里有几个步骤)
+
+	//1.创建image对象
+	var img1=new Image();
+	//2.指定是哪个图片
+	img1.src="shunping.jpg";
+	//加载完毕后，在绘制图片
+	img1.onload=function(){
+	cxt.drawImage(img1,20,100,200,150);
+	}
+
+	//在画布上写字(希望大家一起来编程->大战就会使用)
+	var text="传智播客PHP";
+	//设置字体的大小
+	cxt.fillStyle="#0000FF";
+	cxt.font="30px 华文彩云";
+	cxt.fillText(text,230,200);
+
+
+
+
+</script>
+</body>
+</html>

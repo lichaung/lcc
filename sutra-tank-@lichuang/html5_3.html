@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+	<title>Animations功能使用方法(以前必须使用flash ,现在使用css3动画效果)</title>
+<style>
+   div { 
+         background-color: red;
+    }
+    @-webkit-keyframes mycolor {
+          0% {
+                 background-color: red;
+             }
+             40% {
+                 background-color: darkblue;
+             }
+             70% {
+                 background-color: yellow;
+             }
+             100% {
+                 background-color: red;
+             }
+         }
+         div:hover {
+             -webkit-animation-name: mycolor;
+             -webkit-animation-duration: 5s;
+             -webkit-animation-timing-function: linear;
+         }
+         </style>
+     </head>
+     <body>
+         <div>传智播客</div>
+     </body>
+ </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<body onkeydown="getCommand();">
+<h1>hmtl5-经典的坦克大战</h1>
+<!--坦克大战的战场-->
+<canvas id="tankMap" width="400px" height="300px" style="background-color:black"></canvas>
+<!--把tankGames.js引入到本页面-->
+<script type="text/javascript" src="tankGame2.js"></script>
+<script type="text/javascript">
+
+	//得到画布
+	var canvas1=document.getElementById("tankMap");
+	//得到绘图上下文(你可以理解是画笔)
+	var cxt=canvas1.getContext("2d");
+	
+
+	//我的坦克 hero
+	//方向 
+	var hero=new Hero(140,140,0);
+
+	
+	drawTank(hero);
+
+	//这是一个接受用户按键函数
+	function getCommand(){
+		
+		//我怎么知道，玩家按下的是什么键
+		//说明当按下键后 事件--->event对象----->事件处理函数()
+		var code=event.keyCode;//对应字母的ascii码->我们看码表
+		
+		switch(code){
+			case 87://上
+				hero.moveUp();
+				
+			   break;
+			case 68:
+			
+			  hero.moveRight();
+			   break;
+			 case 83:
+				
+				hero.moveDown();
+				break;
+			case 65:
+				hero.moveLeft();
+				break;
+		}
+		//把画布清理
+		cxt.clearRect(0,0,400,300); 
+		//重新绘制
+		drawTank(hero);
+	}
+	
+
+</script>
+</body>
+</html>

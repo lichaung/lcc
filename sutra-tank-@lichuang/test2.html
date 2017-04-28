@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<body>
+<script type="text/javascript">
+
+	//Animal 类
+	function Animal (name,age){
+		this.name=name;
+		this.age=age;
+
+		this.aaa=function(){
+			alert("yyy");
+		}
+
+	}
+
+	function Dog(name,age){
+		//把Animal 构造函数赋给this.hsp
+		this.hsp=Animal;
+		//运行调用!!!
+		this.hsp(name,age);
+	}
+
+	var dog1=new Dog("小狗",20);
+
+	alert(dog1.name);
+
+	dog1.aaa();
+
+</script>
+</body>

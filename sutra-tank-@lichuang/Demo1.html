@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<!--当按键后，去调用 test();-->
+<body onkeydown="test()">
+<h1>小球上下左右移动</h1>
+<canvas id="test" width="400px" height="300px" style="background-color:black">
+</canvas>
+<script type="text/javascript">
+	
+	//得到画布
+	var canvas1=document.getElementById("test");
+	//得到绘图上下文(你可以理解是画笔)
+	var cxt=canvas1.getContext("2d");
+
+	var ballX=30;
+	var ballY=30;
+
+	
+	function drawBall(){
+		//这里有一个非常重要的知识点.
+		//如果你在函数中，没有定义就直接使用变量，就意味你使用的全局变量
+		//如果你在函数中， 定义了 才使用该变量，说明使用的局部变量
+		//画出红色圆球
+		//我们画出园是，要把路径闭合，否则，会出在诡异现象
+		cxt.beginPath();
+		cxt.fillStyle="#FF0000";
+		cxt.arc(ballX,ballY,10,0,360,true);
+		cxt.closePath();
+		cxt.fill();
+
+	}
+
+	drawBall();
+	//现在我按 w->"向上" d="右" s="下" a=>"左" 可以上小球
+	//说明: 当我们按下一个键，实际上触发一个 onkeydown
+
+	function test(){
+		
+		//我怎么知道，玩家按下的是什么键
+		//说明当按下键后 事件--->event对象----->事件处理函数()
+		var code=event.keyCode;//对应字母的ascii码->我们看码表
+		
+		switch(code){
+			case 87://上
+			   ballY--;
+			   break;
+			case 68:
+			  ballX++;
+			   break;
+			 case 83:
+				ballY++;
+				break;
+			case 65:
+			    ballX--;
+				break;
+		}
+		//把画布清理
+		cxt.clearRect(0,0,400,300); 
+		//重新绘制
+		drawBall();
+
+		
+	}
+
+	
+</script>
+</body>
+</html>

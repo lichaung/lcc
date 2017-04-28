@@ -1,0 +1,32 @@
+<!-- 告诉浏览器这个一个html5的网页 -->
+<!DOCTYPE html> 
+<html>
+<head>
+<!--网页的编码-->
+<meta charset="utf-8"/>
+</head>
+<body>
+<!--这是一个画布标签，我们这个这个区域绘制图形.-->
+<canvas id="can1" width="500px" height="400px" style="border: 1px solid red">
+</canvas>
+
+
+<script type="text/javascript">
+	
+	//我要在画布画出矩形.
+	//1. 得到画布
+	var canvas=document.getElementById("can1");
+	//2. 得到上下文环境.,我们可以通过cxt这个对象来绘制图形
+	//你也可以简单的理解，这个cxt就是画笔,cxt提供了很多绘制图形的方法
+	//通过这些方法就可以绘制图形
+	var cxt=canvas.getContext("2d");
+	//我们看看cxt是什么类型
+	//alert(cxt);
+
+	//画出一个矩形,默认是黑色
+	//改变颜色-红色
+	cxt.fillStyle="#FF0000";
+	cxt.fillRect(10,10,30,30);
+</script>
+</body>
+</html>
