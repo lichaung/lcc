@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://www.mhtml5.com/games/tank/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="battle city" content="tank,html5,canvas">
+	<meta name="a game" content="battle city">
+	<title>Tank html5 - by 06wj</title>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Const.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Sound.js"></script>
+	
+	
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Map.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/MapLevel.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/StageStart.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Sprite.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Score.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/TankStart.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Tank.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/MyTank.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Bullet.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/HitFx.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/BombFx.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Food.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/ScoreBoard.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Score.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Num.js"></script>
+	<script type="text/javascript" src="./Tank html5 - by 06wj_files/Main.js"></script>
+	
+	</head><body><audio id="attack" src="sound/attack.mp3"></audio>
+	<audio id="bomb0" src="sound/bomb0.mp3"></audio>
+	<audio id="bomb1" src="sound/bomb1.mp3"></audio>
+	<audio id="food" src="sound/food.mp3"></audio>
+	<audio id="stageStart" src="sound/stageStart.mp3"></audio>
+	<audio id="shootOver" src="sound/shootOver.mp3"></audio>
+	<audio id="move" src="sound/move.mp3"></audio>
+	<audio id="move1" src="sound/move1.mp3"></audio>
+	
+	<script type="text/javascript">window.onload = function(){main()}</script>
+	
+	<link rel="stylesheet" type="text/css" href="./Tank html5 - by 06wj_files/style.css" media="all">
+
+
+	<div id="srcImg">
+		<img src="./Tank html5 - by 06wj_files/tankAll.gif" id="tankAll">
+	</div>
+	
+	<div id="game">
+		<canvas id="wall" width="512" height="448"></canvas> 
+		<canvas id="main" width="512" height="448"></canvas>
+		<canvas id="grass" width="512" height="448"></canvas>	
+		<canvas id="upp" width="512" height="448"></canvas> 
+		<canvas id="stage" width="512" height="448"></canvas> 
+	</div>
+	
+	<div id="author">
+		<h1>only for chrome and firefox</h1>
+	</div>
+	<div id="contral">
+		
+				N select the stage
+		<table border="1" cellpadding="10">
+				<tbody><tr>
+					<th>contral</th>
+					<th>UP</th>
+					<th>DOWN</th>
+					<th>LEFT</th>
+					<th>RIGHT</th>
+					<th>SHOOT</th>
+					<th>NEXT STAGE</th>
+				</tr>
+				<tr>
+					<td>player1</td>
+					<td>up</td>
+					<td>down</td>
+					<td>left</td>
+					<td>right</td>
+					<td>space</td>
+					<td>n</td>
+				</tr>
+				<tr>
+					<td>player2</td>
+					<td>w</td>
+					<td>s</td>
+					<td>a</td>
+					<td>d</td>
+					<td>j</td>
+					<td>n</td>
+				</tr></tbody></table>
+	</div>
+	
+
+</body></html>

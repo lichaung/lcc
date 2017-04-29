@@ -1,0 +1,30 @@
+body {
+		background-color:#333;
+		color:#ff9966;
+}
+
+#author {	
+			position:absolute;
+			left:80px;
+}
+
+#contral {
+			position:absolute;
+			top:70px;
+			left:600px;
+			text-align: center;
+}
+
+#game  {
+		background-color:#000;
+}
+
+#game canvas{
+		position:absolute;
+		top:70px;
+		left:50px;
+}
+
+#srcImg{
+			display:none;
+}

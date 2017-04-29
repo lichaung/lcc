@@ -1,0 +1,4 @@
+W3Cschool中canvas参考
+http://www.w3school.com.cn/tags/html_ref_canvas.asp
+
+Particles.js 一个轻量级的JavaScript库，用来在网页上创建颗粒效果。

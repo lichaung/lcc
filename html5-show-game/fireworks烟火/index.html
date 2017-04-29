@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5烟花效果</title>
+	<script src="./lufylegend-1.7.7.js" type="text/javascript"></script>
+	<script src="./Smearing.js" type="text/javascript"></script>
+	<script src="./Fireworks.js" type="text/javascript"></script>
+	<script>
+	init(10,"mylegend",500,500,main);
+	var backLayer,fireworksLayer;
+	var back;
+	//烟花颜色集
+	var colorArray = new Array(
+		"yellow",
+		"orangered",
+		"red",
+		"pink"
+	);
+	//加入烟花最大数量
+	var maxFrame = 4;
+	//当前加入烟花数量
+	var frameIndex = 0;
+	var sound;
+	function main(){
+		LStage.setDebug(true);
+		
+		//加入音乐
+		sound = new LSound("http://stream20.qqmusic.qq.com/34962638.mp3");
+		
+		//加入底板层
+		backLayer = new LSprite();
+		addChild(backLayer);
+		//加入烟花层
+		fireworksLayer = new LSprite();
+		addChild(fireworksLayer);
+		
+		//画一个黑色矩形作为背景
+		back = new LGraphics();
+		back.drawRect(0,"",[0,0,LStage.width,LStage.height],true,"black");
+		backLayer.addChild(back);
+		
+		//加入时间轴事件
+		backLayer.addEventListener(LEvent.ENTER_FRAME,onframe)
+	}
+	function addFireworks(){
+		var toY = Math.floor(Math.random() * (-350 + 250) - 250);
+		
+		var colorIndex = Math.floor(Math.random() * 4)
+		//画一个黄色矩形作为一颗升天的烟花
+		var fireworks = new LSprite();
+		fireworks.x = Math.floor(Math.random() * (480 - 20) + 20);
+		fireworks.y = 500;
+		fireworks.graphics.drawRect(0,"",[0,0,10,10],true,colorArray[colorIndex]);
+		
+		//为升起的烟花添加一个拖尾
+		var smearing = new Smearing(fireworks,50);
+		//移动烟花
+		smearing.to(1,{
+			x: 0,
+			y: toY,//-300
+			onComplete:function(){
+				//添加扩散开的烟花
+				var spreading = new Fireworks(fireworks.x,fireworks.y+toY,colorArray[colorIndex]);
+				fireworksLayer.addChild(spreading);
+			}
+		});
+		fireworksLayer.addChild(smearing);
+	}
+	function onframe(){
+		//加入烟花
+		if(frameIndex < maxFrame){
+			frameIndex ++;
+			addFireworks();
+		}
+		//播放音乐
+		if(sound.playing == false){
+			sound.play();
+		}
+		//移除烟花
+		for(var key in fireworksLayer.childList){
+			if(fireworksLayer.childList[key].mode == "complete"){
+				//通过缓动更改烟花透明度
+				LTweenLite.to(fireworksLayer.childList[key],0.3,{
+					alpha:0,
+					onComplete:function(o){
+						//移除对象
+						fireworksLayer.removeChild(o);
+						//如果界面上没有烟花，将已经加入数量设为0
+						if(fireworksLayer.childList.length == 0){
+							frameIndex = 0;
+						}
+					}
+				});
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="mylegend">loading……</div>
+</body>
+</html>
