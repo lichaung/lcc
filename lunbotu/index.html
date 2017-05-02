@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>轮播图</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			ol,
+			li {
+				list-style: none;
+			}
+			
+			ul {
+				margin: 0 auto;
+				width: 500px;
+				height: 400px;
+				position: relative;
+			}
+			
+			img {
+				width: 500px;
+				height: 350px;
+			}
+			
+			li {
+				display: none;
+			}
+			
+			li.active {
+				display: block;
+			}
+			
+			.btnBox a {
+				display: inline-block;
+				width: 30px;
+				height: 50px;
+				background: yellow;
+				font-size: 30px;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+				position: absolute;
+				display: none;
+				opacity: 0.6;
+				border-radius: 10px;
+			}
+			
+			.prev {
+				top: 50%;
+				left: 30px;
+				margin-top: -50px;
+			}
+			
+			.next {
+				top: 50%;
+				right: 30px;
+				margin-top: -50px;
+			}
+			
+			ul:hover .btnBox a {
+				display: block;
+			}
+			
+			.btnBox2 button {
+				width: 30px;
+				height: 30px;
+				background: yellowgreen;
+				border: none;
+				border-radius: 50%;
+				opacity: 0.5;
+				cursor: pointer;
+			}
+			
+			.btnBox2 {
+				position: absolute;
+				bottom: 75px;
+				left: 155px;
+			}
+			
+			.btnBox2 button.active {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="oUl">
+			<li><img src="img/5.jpg" /></li>
+			<li class="active"><img src="img/1.jpg" /></li>
+			<li><img src="img/2.jpg" /></li>
+			<li><img src="img/3.jpg" /></li>
+			<li><img src="img/4.jpg" /></li>
+			<li><img src="img/5.jpg" /></li>
+			<li><img src="img/1.jpg" /></li>
+			<div class="btnBox">
+				<a id="prev" class="prev">
+					<</a>
+						<a id="next" class="next">></a>
+			</div>
+
+			<div class="btnBox2">
+				<button style="display: none;"></button>
+				<button class="active">1</button>
+				<button>2</button>
+				<button>3</button>
+				<button>4</button>
+				<button>5</button>
+				<button style="display: none;"></button>
+			</div>
+		</ul>
+	</body>
+	<script type="text/javascript">
+				var aLi = document.getElementsByTagName("li");
+				var aBtn = document.getElementsByTagName("button");
+				var oUl = document.getElementById("oUl");
+				var oPrev = document.getElementById("prev");
+				var oNext = document.getElementById("next");
+				var _index = 1;
+				var timer = null;
+				play();
+				addEvent();
+				function show(index) {
+					for(var i = 0; i < aLi.length; i++) {
+						aLi[i].className = "";
+						aBtn[i].className = "";
+					}
+					aLi[index].className = "active";
+					aBtn[index].className = "active";
+
+				}
+
+				function changeAndShow() {
+					if(_index == 6) {
+						_index = 1;
+					}
+					if(_index == 0) {
+						_index = 5;
+					}
+					show(_index);
+				}
+
+				function play() {
+					timer = setInterval(function() {
+						_index++;
+						changeAndShow();
+					}, 1000);
+				}
+
+				function addEvent() {
+					for(var i = 0; i < aBtn.length; i++) {
+						aBtn[i].index = i;
+						aBtn[i].onmouseover = function() {
+							show(this.index);
+						}
+					}
+					oPrev.onclick = function() {
+						_index--;
+						changeAndShow();
+
+					}
+					oNext.onclick = function() {
+						_index++;
+						changeAndShow();
+					}
+
+					oUl.onmouseover = function() {
+						clearInterval(timer);
+					}
+
+					oUl.onmouseout = function() {
+						play();
+					}
+				}
+			</script>
+</html>
