@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            
+            #box {
+                width: 300px;
+                height: 500px;
+                margin: 50px;
+                position: relative
+            }
+            
+            .header {
+                width: 250px;
+                height: 230px;
+                background: #67abd8;
+                border-radius: 50%;
+                margin: 0 auto;
+                border: 1px solid;
+            }
+            
+            .fich {
+                width: 220px;
+                height: 190px;
+                background: #fff;
+                border-radius: 50%;
+                margin: auto;
+                border: 1px solid;
+                transform: translateY(40px)
+            }
+            
+            .eag {
+                width: 100px;
+                height: 60px;
+                position: absolute;
+                left: 110px;
+                top: 10px;
+            }
+            
+            .eag span {
+                width: 40px;
+                height: 50px;
+                background: #fff;
+                border: 1px solid;
+                display: block;
+                border-radius: 45%;
+                position: relative;
+            }
+            
+            .left_eag {
+                float: left;
+                transform: rotate(5deg);
+            }
+            
+            .right_eag {
+                float: left;
+                margin-left: 2px;
+                transform: rotate(-5deg);
+            }
+            
+            .left_eag b {
+                position: absolute;
+                left: 25px;
+                top: 25px;
+                animation: rg_eag 2s infinite linear;
+            }
+            
+            .right_eag b {
+                position: absolute;
+                left: 5px;
+                top: 25px;
+                animation: rg_eag 2s infinite linear;
+            }
+            
+            @keyframes rg_eag {
+                0% {
+                    left: 25px;
+                }
+                50% {
+                    left: 5px;
+                }
+                100% {
+                    left: 25px;
+                }
+            }
+            
+            .eag span b {
+                display: block;
+                background: #000000;
+                width: 10px;
+                height: 15px;
+                border-radius: 50%;
+            }
+            
+            .bizi {
+                width: 30px;
+                height: 30px;
+                background: darkred;
+                border-radius: 50%;
+                position: absolute;
+                left: 138px;
+                top: 55px;
+            }
+            
+            .zui {
+                width: 150px;
+                height: 80px;
+                position: absolute;
+                left: 78px;
+                top: 115px;
+                overflow: hidden;
+            }
+            
+            .zui span {
+                display: block;
+                width: 150px;
+                height: 130px;
+                background: #7e3048;
+                border-radius: 50%;
+                position: absolute;
+                left: 0px;
+                top: -55px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: horizontal;
+                border: 1px solid;
+            }
+            
+            .zui span b {
+                display: block;
+                width: 55px;
+                height: 70px;
+                background: red;
+                border-top-right-radius: 50px;
+                border-top-left-radius: 50px;
+                transform: translate(20px, 80px);
+                border-top: 1px solid;
+            }
+            
+            .hz1 {
+                width: 2px;
+                height: 50px;
+                background: #000000;
+                transform: rotate(110deg);
+                position: absolute;
+                left: 100px;
+                top: 40px;
+                animation: hz1 2s infinite linear;
+            }
+            
+            @keyframes hz1 {
+                0% {
+                    left: 100px;
+                }
+                50% {
+                    left: 105px;
+                }
+                100% {
+                    left: 100px;
+                }
+            }
+            
+            .hz2 {
+                width: 1.6px;
+                height: 55px;
+                background: #000000;
+                transform: rotateZ(90deg);
+                position: absolute;
+                left: 90px;
+                top: 56px;
+                animation: hz2 2s infinite linear;
+            }
+            
+            @keyframes hz2 {
+                0% {
+                    left: 90px;
+                }
+                50% {
+                    left: 95px;
+                }
+                100% {
+                    left: 90px;
+                }
+            }
+            
+            .hz3 {
+                width: 2px;
+                height: 50px;
+                background: #000000;
+                transform: rotateZ(70deg);
+                position: absolute;
+                left: 100px;
+                top: 80px;
+                animation: hz3 2s infinite linear;
+            }
+            
+            @keyframes hz3 {
+                0% {
+                    left: 100px;
+                }
+                50% {
+                    left: 105px;
+                }
+                100% {
+                    left: 100px;
+                }
+            }
+            
+            .hz4 {
+                width: 2px;
+                height: 50px;
+                background: #000000;
+                transform: rotate(70deg);
+                position: absolute;
+                left: 205px;
+                top: 40px;
+                animation: hz4 2s infinite linear;
+            }
+            
+            @keyframes hz4 {
+                0% {
+                    left: 200px;
+                }
+                50% {
+                    left: 205px;
+                }
+                100% {
+                    left: 200px;
+                }
+            }
+            
+            .hz5 {
+                width: 1.6px;
+                height: 60px;
+                background: #000000;
+                transform: rotateZ(90deg);
+                position: absolute;
+                left: 215px;
+                top: 55px;
+                animation: hz5 2s infinite linear;
+            }
+            
+            @keyframes hz5 {
+                0% {
+                    left: 215px;
+                }
+                50% {
+                    left: 220px;
+                }
+                100% {
+                    left: 215px;
+                }
+            }
+            
+            .hz6 {
+                width: 2px;
+                height: 50px;
+                background: #000000;
+                transform: rotateZ(110deg);
+                position: absolute;
+                left: 205px;
+                top: 80px;
+                animation: hz6 2s infinite linear;
+            }
+            
+            @keyframes hz6 {
+                0% {
+                    left: 200px;
+                }
+                50% {
+                    left: 205px;
+                }
+                100% {
+                    left: 200px;
+                }
+            }
+            
+            .bl {
+                width: 3px;
+                height: 30px;
+                background: #000000;
+                position: absolute;
+                left: 152px;
+                top: 85px;
+            }
+            
+            .body {
+                width: 170px;
+                height: 150px;
+                background: #67abd8;
+                margin: 0 auto;
+                transform: translateY(-30px);
+                border-radius: 7px 7px 0 0;
+                border: 1px solid;
+                /* border-bottom: none;*/
+                position: relative;
+            }
+            
+            .lingzi {
+                width: 170px;
+                height: 20px;
+                background: #2B542C;
+                position: absolute;
+                border-bottom: 1px solid;
+                border-top: 1px solid;
+                border-radius: 7px;
+                transform: skew(30px);
+            }
+            
+            .lingdang {
+                width: 50px;
+                height: 50px;
+                background: #00FF00;
+                border-radius: 50%;
+                position: absolute;
+                left: 60px;
+                top: 10px;
+                border: 1px solid;
+                overflow: hidden;
+            }
+            
+            .lingdang span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #000000;
+                transform: translateY(20px);
+            }
+            
+            .lingdang b {
+                display: block;
+                width: 10px;
+                height: 20px;
+                background: #000000;
+                border-radius: 50%;
+                transform: translate(20px, 30px);
+            }
+            
+            .duzi {
+                width: 130px;
+                height: 145px;
+                background: #fff;
+                border-bottom-left-radius: 40%;
+                border-bottom-right-radius: 45%;
+                border-top-left-radius: 40%;
+                border-top-right-radius: 40%;
+                margin: auto;
+                border: 1px solid;
+            }
+            
+            .douzi {
+                width: 90px;
+                height: 50px;
+                border-radius: 0 0 50px 50px;
+                border: 1px solid;
+                transform: translate(20px, 80px);
+            }
+            
+            .left_gebo {
+                width: 30px;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-top: 100px solid #67abd8;
+                position: absolute;
+                left: -40px;
+                top: 20px;
+                transform: rotateZ(45deg);
+                z-index: -1;
+            }
+            
+            .left_shou {
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                border: 1px solid;
+                border-radius: 50%;
+                position: absolute;
+                left: -10px;
+                top: -20px;
+                z-index: -101;
+            }
+            
+            .right_gebo {
+                width: 30px;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-top: 100px solid #67abd8;
+                position: absolute;
+                left: 120px;
+                top: 40px;
+                transform: rotate(-115deg);
+                transform-origin: top;
+                z-index: -100;
+                animation: rg_gebo 2s linear infinite;
+            }
+            
+            @keyframes rg_gebo {
+                0% {
+                    transform: rotate(-115deg);
+                    transform-origin: top;
+                }
+                50% {
+                    top: 35px;
+                    transform: rotate(-95deg);
+                    transform-origin: top;
+                }
+                100% {
+                    transform: rotate(-115deg);
+                    transform-origin: top;
+                }
+            }
+            
+            .right_shou {
+                width: 50px;
+                height: 50px;
+                background: #fff;
+                border: 1px solid;
+                border-radius: 50%;
+                position: absolute;
+                left: -10px;
+                top: -20px;
+                z-index: -101;
+            }
+            
+            .footer {
+                width: 170px;
+                margin: 0 auto;
+                transform: translateY(-32px);
+                display: -webkit-box;
+                -webkit-box-orient: horizontal;
+            }
+            
+            .footer span {
+                width: 80px;
+                height: 50px;
+                background: #67abd8;
+                display: block;
+                border: 1px solid;
+                border-top: none;
+                position: relative;
+            }
+            
+            .footer span b {
+                width: 88px;
+                height: 50px;
+                background: #fff;
+                display: block;
+                border-radius: 50px;
+                border: 1px solid;
+                position: absolute;
+                top: 30px;
+                left: -4px;
+            }
+            
+            .right_footer {
+                margin-left: 7px;
+            }
+            
+            .left_footer {
+                transform: translateX(-1px);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- 你们切换线路-->
+        <div id="box">
+            <!--大圆头-->
+            <div class="header">
+                <!--    脸-->
+                <div class="fich"></div>
+                <!--眼-->
+                <div class="eag">
+                    <!--左眼-->
+                    <span class="left_eag">
+                        <!--左眼珠-->
+	     	            <b></b>
+	     	        </span>
+                    <!--右眼-->
+                    <span class="right_eag">
+                        <!--右眼珠-->
+	     	            <b></b>
+	     	        </span>
+                </div>
+                <!--鼻子-->
+                <div class="bizi"></div>
+                <!-- 六根小胡子-->
+                <div class="hz1"></div>
+                <div class="hz2"></div>
+                <div class="hz3"></div>
+                <div class="hz4"></div>
+                <div class="hz5"></div>
+                <div class="hz6"></div>
+                <div class="bl"></div>
+                <!-- 嘴-->
+                <div class="zui">
+                    <!-- 口腔-->
+                    <span>
+                        <!--舌头  B-->
+	     	             <b></b>	     	            
+	     	             <b></b>	     	            
+	     	         </span>
+                </div>
+            </div>
+            <!--正方形的身体-->
+            <div class="body">
+                <!--  领子-->
+                <div class="lingzi"> </div>
+                <!-- 铃铛-->
+                <div class="lingdang">
+                    <span></span>
+                    <!-- 铃铛孔  B-->
+                    <b></b>
+                </div>
+                <!-- 肚子-->
+                <div class="duzi">
+                    <!--口袋-->
+                    <div class="douzi"> </div>
+                </div>
+                <!-- 左胳膊-->
+                <div class="left_gebo">
+                    <!-- 左手-->
+                    <div class="left_shou"> </div>
+                </div>
+                <!-- 右胳膊-->
+                <div class="right_gebo">
+                    <!-- 右手-->
+                    <div class="right_shou"></div>
+                </div>
+            </div>
+            <!--腿-->
+            <div class="footer">
+                <!--左腿 -->
+                <span class="left_footer">
+                    <!--左脚-->
+                    <b></b>
+                </span>
+                <!--右腿-->
+                <span class="right_footer">
+                    <!--右脚-->
+                    <b></b>
+                </span>
+            </div>
+        </div>
+    </body>
+
+</html>
